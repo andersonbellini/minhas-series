@@ -11,11 +11,11 @@ Para instalação você pode usar o gerenciador de pacotes do node NPM ou o Yarn
 yarn install
 ```
 
-Depois de realizar a instalação dos pacotes, você deve inicializar o projeto de backend diretamente com o node e depois iniciar com o "start".
+Depois de realizar a instalação dos pacotes, você deve inicializar o projeto de backend diretamente com o node e depois iniciar com o "start-react".
 
 ```shell
 node ./node_modules/minhas-series-server/index.js
-yarn start
+yarn start-react
 ```
 
 ## Desenvolvimento
@@ -52,3 +52,6 @@ Fonte disponível para baixar em:
 ## Licença
 
 Liberado para uso e estudo.
+
+## Créditos Autor
+Treinamento realizado com Tulio Faria do devpleno

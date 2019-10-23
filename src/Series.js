@@ -2,19 +2,19 @@ import React, {useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
-const Generos = () => {
+const Series = () => {
   const [data, setData]= useState([])
  
   useEffect(()=>{
     axios
-      .get('api/genres')
+      .get('api/series')
       .then(res => {
         setData(res.data.data)
       })
   },[])
 
-  const deleteGenero = id =>{
-    axios.delete('/api/genres/'+ id)
+  const deleteSerie = id =>{
+    axios.delete('/api/series/'+ id)
       .then( res =>{
            const filtrado = data.filter(item => item.id !== id)
            setData(filtrado)
@@ -27,8 +27,8 @@ const Generos = () => {
         <th scope="row">{record.id}</th>
         <td>{record.name}</td>
         <td>
-          <button className="btn btn-danger" onClick={()=>deleteGenero(record.id)}>Remover</button> 
-          <Link className="btn btn-info" to={"/generos/" +  record.id}>Editar</Link>       
+          <button className="btn btn-danger" onClick={()=>deleteSerie(record.id)}>Remover</button> 
+          <Link className="btn btn-info" to={"/series/" +  record.id}>Info</Link>       
         </td>
       </tr>
     )
@@ -37,10 +37,10 @@ const Generos = () => {
   if(data.length===0){
     return(
       <div className="container">
-          <h1>Genêros</h1>
-          <div><Link className="btn btn-primary" to="/generos/novo">Novo</Link></div>
+          <h1>Séries</h1>
+          <div><Link className="btn btn-primary" to="/series/novo">Nova série</Link></div>
           <div className="alert alert-warning" role="alert">
-            Você não possui gêneros criados!
+            Você não possui séries criadas!
           </div>
       </div>
     )
@@ -48,8 +48,8 @@ const Generos = () => {
  
   return (
     <div className="container">
-      <h1>Genêros</h1>
-      <div><Link className="btn btn-primary" to="/generos/novo">Novo</Link></div>
+      <h1>Séries</h1>
+      <div><Link className="btn btn-primary" to="/series/novo">Nova série</Link></div>
       <table className="table table-dark">
         <thead>
           <tr>
@@ -66,4 +66,4 @@ const Generos = () => {
   )
 }
 
-export default Generos
+export default Series
